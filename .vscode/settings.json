@@ -2,5 +2,6 @@
 {
     "vsicons.presets.angular": true,
     "tslint.enable": true,
-    "tslint.run": "onType"
+    "tslint.run": "onType",
+    "tslint.autoFixOnSave": true
 }

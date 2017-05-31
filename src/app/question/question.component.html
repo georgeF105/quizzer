@@ -1,8 +1,6 @@
-<p>
-  question works!
-</p>
-<p>{{question.question}}</p>
-<p>{{question.option1}}</p>
-<p>{{question.option2}}</p>
-<p>{{question.option3}}</p>
-<p>{{question.option4}}</p>
+<div *ngIf="question$ | async as question">
+    <p>{{question.question}}</p>
+    <p *ngFor="let answer of question.all_answers">
+      {{answer}}
+    </p>
+</div>

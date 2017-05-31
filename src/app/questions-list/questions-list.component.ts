@@ -11,11 +11,13 @@ import { Question } from '../models/question';
 export class QuestionsListComponent implements OnInit {
 
   public questions$: Observable<Question[]>;
+  public question$: Observable<Question>;
 
   constructor(private questionService: QuestionService) {}
 
   ngOnInit() {
     this.questions$ = this.questionService.getQuestions();
+    this.question$ = this.questions$.map(questions => questions[0]);
   }
 
 }

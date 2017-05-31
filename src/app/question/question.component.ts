@@ -8,7 +8,7 @@ import { Question } from 'app/models/question';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent {
-  @Input() question: Question;
+  @Input() question$: Observable<Question>;
 
   checkAnswer() {
   }

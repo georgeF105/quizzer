@@ -1,6 +1,3 @@
-<p>
-  questions-list works!
-</p>
-<app-question *ngFor="let question of questions$ | async"
-  [question] = "question">
+<app-question *ngIf="question$ | async"
+  [question$] = "question$">
 </app-question>

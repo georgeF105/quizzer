@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionService } from 'app/question.service';
+import { QuestionService } from '../question.service';
 import { Observable } from 'rxjs/Observable';
-import { Question } from 'app/models/question';
+import { Question } from '../models/question';
 
 @Component({
   selector: 'app-questions-list',
@@ -10,20 +10,12 @@ import { Question } from 'app/models/question';
 })
 export class QuestionsListComponent implements OnInit {
 
-  public questions$: Array<Question>;
-  public question: Question;
-  public currentQuestionNumber: number;
+  public questions$: Observable<Question[]>;
 
   constructor(private questionService: QuestionService) {}
 
   ngOnInit() {
-    this.currentQuestionNumber = 1;
-    this.questionService.getQuestions()
-      .subscribe(data => {
-        console.log(data);
-        this.questions$ = data;
-        this.question = this.questions$[0];
-      });
+    this.questions$ = this.questionService.getQuestions();
   }
 
 }

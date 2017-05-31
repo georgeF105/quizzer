@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Question } from 'app/models/question';
 
-const API_ENDPOINT = 'http://qriusity.com/v1/questions';
+const API_ENDPOINT = 'https://opentdb.com/api.php';
 const QUIZ_START_YEAR = 2017;
 @Injectable()
 export class QuestionService {
@@ -11,13 +11,9 @@ export class QuestionService {
   constructor(private http: Http) { }
 
   getQuestions(): Observable<Array<Question>> {
-    const request = `${API_ENDPOINT}?page=${this.getPage()}&limit=10`;
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/json');
-    headers.append('Access-Control-Allow-Origin', '*');
-    return this.http.get(request, headers)
-      .map(res => res.json().items);
+    const request = `${API_ENDPOINT}?amount=10`;
+    return this.http.get(request)
+      .map(res => res.json().results);
   }
 
   getPage() {

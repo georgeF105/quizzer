@@ -1,6 +1,8 @@
 <div *ngIf="question$ | async as question">
-  {{question.question}}
+  <h2>{{question.question}}</h2>
   <md-radio-group class="question-radio-group" [(ngModel)]="selectedAnswer">
-    <input mdRadioButton [name]="answer" class="question-radio-button" *ngFor="let answer of question.all_answers" [value]="answer">
+    <md-radio-button mdRadioButton [name]="answer" class="question-radio-button" *ngFor="let answer of question.all_answers" [value]="answer">
+      {{answer}}
+    </md-radio-button>
   </md-radio-group>
 </div>

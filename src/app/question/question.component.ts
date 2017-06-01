@@ -15,4 +15,13 @@ export class QuestionComponent implements OnInit{
   ngOnInit() {
 
   }
+
+  public onClick (question: Question) {
+    console.log('here', this.selectedAnswer);
+    if (this.selectedAnswer !== question.correct_answer) {
+      alert('WRONG!!!!');
+      return;
+    }
+    alert('YUP');
+  }
 }

@@ -8,10 +8,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { QuestionsListComponent } from './questions-list/questions-list.component';
+import { QuestionComponent } from './question/question.component';
+import { QuestionService } from 'app/question.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuestionsListComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
